@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+	<title>Github authentication</title>
+</head>
+<body>
+	<h1>Github Login Using Passport</h1>
+	<div>
+		<% if(user != undefined){ %>
+			<h2>Welcome <%= user.name %></h2>
+			<img src="<%= user.avatar %>" width="200"/>
+			<% if(user.repos){ %>
+				<input type ="hidden" id ="repos" value ="<%= user.repos %>">
+
+				<div id ="repo-div">
+					<ul class="repo-list"></ul>
+				</div>
+				<script type="text/javascript" src="js/main.js"></script>
+			<% } %>
+			<a href="/logout">logout</a>
+		<% } else { %>
+			<a href="/auth/github">Login with Github</a>
+		<% } %>
+	</div>
+
+</body>
+</html>
